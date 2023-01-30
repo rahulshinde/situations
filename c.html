@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>A</title>
+	<title>C</title>
 	<style type="text/css">
 		body{
 			margin: 0;
@@ -65,95 +65,56 @@
 		const cap1 = new THREE.Mesh( sphereGeometry, material );
 		const cap2 = new THREE.Mesh( sphereGeometry, material );
 		const cap3 = new THREE.Mesh( sphereGeometry, material );
-		cap1.position.x = -10;
-		cap1.position.y = -15;
-		cap2.position.x = 10;
-		cap2.position.y = -15;
-		cap3.position.x = 15;
-		cap3.position.y = 8;
-		cap3.position.z = -5;
+		const cap4 = new THREE.Mesh( sphereGeometry, material );
+		cap1.position.x = -8;
+		cap1.position.y = -2;
+
+		cap2.position.x = 8;
+		cap2.position.y = 12;
+		cap2.position.z = 5;
+
+		cap3.position.x = -8;
+		cap3.position.y = 2;
+
+		cap4.position.x = 8;
+		cap4.position.y = -12;
+		cap4.position.z = -5;
 
 
 		// Path 1
 
-		const line1 = new THREE.LineCurve(
-			new THREE.Vector3( -10, -15, 0 ),
-			new THREE.Vector3( -10, 10, 0 )
-		)
-
 		const curve1 = new THREE.CubicBezierCurve3(
-			new THREE.Vector3( -10, 10, 0 ),
-			new THREE.Vector3( -10, 25, 0 ),
-			new THREE.Vector3( 10, 25, 0  ),
-			new THREE.Vector3( 10, 10, 0 )
+			new THREE.Vector3( -8, -2, 0 ),
+			new THREE.Vector3( -16, 6, -5 ),
+			new THREE.Vector3( -8, 24, 5  ),
+			new THREE.Vector3( 8, 12, 5 )
 		);
 
-		const line2 = new THREE.LineCurve(
-			new THREE.Vector3( 10, 10, 0 ),
-			new THREE.Vector3( 10, -15, 0 )
-		)
 
-		const geometryLine1 = new THREE.TubeGeometry( line1, 1, splineWidth, 15, false );
 		const geometryCurve1 = new THREE.TubeGeometry( curve1, 60, splineWidth, 15, false );
-		const geometryLine2 = new THREE.TubeGeometry( line2, 1, splineWidth, 15, false );
 
-		const line1mesh = new THREE.Mesh( geometryLine1, material );
 		const curve1mesh = new THREE.Mesh( geometryCurve1, material );
-		const line2mesh = new THREE.Mesh( geometryLine2, material );
 
 		const stroke1 = new THREE.Group()
-		stroke1.add( line1mesh );
 		stroke1.add( curve1mesh );
-		stroke1.add( line2mesh );
 		stroke1.add( cap1 );
 		stroke1.add( cap2 );
 
 		// Path 2
-
-		const line3 = new THREE.CubicBezierCurve3(
-			new THREE.Vector3( 0, 21, 0 ),
-			new THREE.Vector3( 0, 20, 3 ),
-			new THREE.Vector3( 0, 20, 5  ),
-			new THREE.Vector3( 0, 8, 5 )
-		);
-
 		const curve2 = new THREE.CubicBezierCurve3(
-			new THREE.Vector3( 0, 8, 5 ),
-			new THREE.Vector3( 0, 0, 5 ),
-			new THREE.Vector3( 0, 0, 0  ),
-			new THREE.Vector3( -5, 0, 0 )
-		);
-
-		const curve3 = new THREE.CubicBezierCurve3(
-			new THREE.Vector3( -5, 0, 0 ),
-			new THREE.Vector3( -10, 0, 0 ),
-			new THREE.Vector3( -10, 8, -5  ),
-			new THREE.Vector3( -5, 8, -5)
-		);
-
-		const line4 = new THREE.LineCurve(
-			new THREE.Vector3( -5, 8, -5 ),
-			new THREE.Vector3( 15, 8, -5 )
+			new THREE.Vector3( -8, 2, 0 ),
+			new THREE.Vector3( -16, -6, 5 ),
+			new THREE.Vector3( -8, -24, -5 ),
+			new THREE.Vector3( 8, -12, -5 )
 		)
 
-
-		const geometryLine3 = new THREE.TubeGeometry( line3, 60, splineWidth, 15, false );
 		const geometryCurve2 = new THREE.TubeGeometry( curve2, 60, splineWidth, 15, false );
-		const geometryCurve3 = new THREE.TubeGeometry( curve3, 60, splineWidth, 15, false );
-		const geometryLine4 = new THREE.TubeGeometry( line4, 1, splineWidth, 15, false );
-
-	
-		const line3mesh = new THREE.Mesh( geometryLine3, material );
 		const curve2mesh = new THREE.Mesh( geometryCurve2, material );
-		const curve3mesh = new THREE.Mesh( geometryCurve3, material );
-		const line4mesh = new THREE.Mesh( geometryLine4, material );
 		
 		const stroke2 = new THREE.Group();
-		stroke2.add( line3mesh );
 		stroke2.add( curve2mesh );
-		stroke2.add( curve3mesh );
-		stroke2.add( line4mesh );
 		stroke2.add( cap3 );
+		stroke2.add( cap4 );
 		
 		const letter = new THREE.Group();
 		
@@ -170,11 +131,13 @@
 		function animation( time ) {
 
 			// mesh.rotation.x = time / 2000;
-			letter.rotation.y = time / 1000;
+			// letter.rotation.y = time / 1000;
 
 			renderer.render( scene, camera );
 
 		}
 	</script>
+</body>
+</html></script>
 </body>
 </html>
