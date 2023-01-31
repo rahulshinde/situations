@@ -44,12 +44,12 @@
 
 		const scene = new THREE.Scene();
 
-		const light = new THREE.AmbientLight( 0xffffff, 0.5 ); // soft white light
+		const light = new THREE.AmbientLight( 0xffeeee, 1 ); // soft white light
 		scene.add( light );
 
-		const light1 = new THREE.PointLight( 0xf7942a, 1, 4500 );
+		const light1 = new THREE.PointLight( 0xf7942a, 10, 0 );
 		// light1.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xf4bd82 } ) ) );
-		light1.position.set( 20, 0, 10 );
+		light1.position.set( 300, 60, -20 );
 
 		scene.add( light1 );
 
