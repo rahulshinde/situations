@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-class LetterM {
+class LetterW {
 	constructor(splineWidth, material){
 		let sphereGeometry = new THREE.SphereGeometry( splineWidth, 10, 10 );
 		let cap1 = new THREE.Mesh( sphereGeometry, material );
@@ -13,65 +13,72 @@ class LetterM {
 		let cap8 = new THREE.Mesh( sphereGeometry, material );
 
 		cap1.position.x = -4;
-		cap1.position.y = 15;
+		cap1.position.y = -15;
+		
 		cap2.position.x = -12;
-		cap2.position.y = -15;
+		cap2.position.y = 15;
 
 		cap3.position.x = 4;
-		cap3.position.y = 15;
+		cap3.position.y = -15;
 
 		cap4.position.x = 12;
-		cap4.position.y = -15;
+		cap4.position.y = 15;
 
-		cap5.position.y = 15;
-		cap5.position.z = -5;
+		cap5.position.y = -15;
+		cap5.position.z = 0;
 
 		cap6.position.y = 10;
 		cap6.position.z = -5;
 
-		cap7.position.y = -5;
+		cap7.position.y = 5;
+		cap7.position.z = -5;
 
 		cap8.position.y = -10;
 
 		// Path 1
 
-		let line1 = new THREE.LineCurve(
-			new THREE.Vector3( -12, -15, 0 ),
-			new THREE.Vector3( -12, 5, 0 )
+		let line1 = new THREE.CubicBezierCurve3(
+			new THREE.Vector3( -12, 15, 0 ),
+			new THREE.Vector3( -12, 15, 0 ),
+			new THREE.Vector3( -10, 5, 0 ),
+			new THREE.Vector3( -10, -5, 0 )
 		)
 
 		let curve1 = new THREE.CubicBezierCurve3(
-			new THREE.Vector3( -12, 5, 0 ),
-			new THREE.Vector3( -12, 10, 0  ),
-			new THREE.Vector3( -12, 15, 0 ),
-			new THREE.Vector3( -4, 15, 0 )
+			new THREE.Vector3( -10, -5, 0 ),
+			new THREE.Vector3( -10, -15, 0 ),
+			new THREE.Vector3( -10, -15, 0  ),
+			new THREE.Vector3( -4, -15, 0 )
+		);
+
+
+		let curve3 = new THREE.CubicBezierCurve3(
+			new THREE.Vector3( 4, -15, 0 ),
+			new THREE.Vector3( 4, -10, 5 ),
+			new THREE.Vector3( -4, -10, 5  ),
+			new THREE.Vector3( -4, -15, 0 )
 		);
 
 		let curve2 = new THREE.CubicBezierCurve3(
-			new THREE.Vector3( 4, 15, 0 ),
+			new THREE.Vector3( 4, -15, 0 ),
+			new THREE.Vector3( 10, -15, 0 ),
+			new THREE.Vector3( 10, -10, 0 ),
+			new THREE.Vector3( 10, -5, 0 )
+		);
+
+		let line2 = new THREE.CubicBezierCurve3(
+			new THREE.Vector3( 10, -5, 0 ),
+			new THREE.Vector3( 10, 5, 0 ),
 			new THREE.Vector3( 12, 15, 0 ),
-			new THREE.Vector3( 12, 10, 0 ),
-			new THREE.Vector3( 12, 5, 0 )
-		);
-
-		let curve3 = new THREE.CubicBezierCurve3(
-			new THREE.Vector3( 4, 15, 0 ),
-			new THREE.Vector3( 4, 10, 5 ),
-			new THREE.Vector3( -4, 10, 5  ),
-			new THREE.Vector3( -4, 15, 0 )
-		);
-
-		let line2 = new THREE.LineCurve(
-			new THREE.Vector3( 12, -15, 0 ),
-			new THREE.Vector3( 12, 5, 0 )
+			new THREE.Vector3( 12, 15, 0 )
 		)
 
 
-		let geometryLine1 = new THREE.TubeGeometry( line1, 1, splineWidth, 15, false );
+		let geometryLine1 = new THREE.TubeGeometry( line1, 60, splineWidth, 15, false );
 		let geometryCurve1 = new THREE.TubeGeometry( curve1, 60, splineWidth, 15, false );
 		let geometryCurve2 = new THREE.TubeGeometry( curve2, 60, splineWidth, 15, false );
 		let geometryCurve3 = new THREE.TubeGeometry( curve3, 60, splineWidth, 15, false );
-		let geometryLine2 = new THREE.TubeGeometry( line2, 1, splineWidth, 15, false );
+		let geometryLine2 = new THREE.TubeGeometry( line2, 60, splineWidth, 15, false );
 
 		let line1mesh = new THREE.Mesh( geometryLine1, material );
 		let line2mesh = new THREE.Mesh( geometryLine2, material );
@@ -94,20 +101,20 @@ class LetterM {
 		// Path 2
 
 		let line3 = new THREE.LineCurve(
-			new THREE.Vector3( 0, 15, -5 ),
-			new THREE.Vector3( 0, 10, -5 )
+			new THREE.Vector3( 0, 10, -5 ),
+			new THREE.Vector3( 0, 5, -5 )
 		)
 
 		let curve4 = new THREE.CubicBezierCurve3(
-			new THREE.Vector3( 0, 10, -5 ),
-			new THREE.Vector3( 5, 5, -5 ),
-			new THREE.Vector3( 5, 0, -5),
-			new THREE.Vector3( 0, -5, 0)
+			new THREE.Vector3( 0, 5, -5 ),
+			new THREE.Vector3( 5, 0, -5 ),
+			new THREE.Vector3( 5, -5, -5),
+			new THREE.Vector3( 0, -10, 0)
 		);
 
 		let line4 = new THREE.LineCurve(
-			new THREE.Vector3( 0, -5, 0 ),
-			new THREE.Vector3( 0, -10, 0 )
+			new THREE.Vector3( 0, -10, 0 ),
+			new THREE.Vector3( 0, -15, 0 )
 		);
 
 		let geometryLine3 = new THREE.TubeGeometry( line3, 1, splineWidth, 15, false );
@@ -134,13 +141,7 @@ class LetterM {
 		letter.add(stroke2);
 
 		this.path = letter;
-
-		this.enter1 = [-12, -15, 0 ];
- 		this.enter2 = [0, 15, -5];
-
- 		this.exit1 = [12, -15, 0];
- 		this.exit2 = [ 0, -10, 0];
 	}
 }
 
-export { LetterM };
+export { LetterW };

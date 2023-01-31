@@ -90,6 +90,12 @@ class LetterE {
 		letter.add(stroke2);
 
 		this.path = letter;
+
+		this.enter1 = [10, 12, -5 ];
+ 		this.enter2 = [ -15, 0, 0];
+
+ 		this.exit1 = [10, -12, 0];
+ 		this.exit2 = [5, 0, 0];
 	}
 }
 
