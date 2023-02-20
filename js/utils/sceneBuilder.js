@@ -3,7 +3,7 @@ import * as tetherCalculator from './tetherCalculator.js'
 
 const tetherMaterial = new THREE.MeshPhongMaterial( 
 	{ 
-		color: 0xf7d011 
+		color: 0xf7d011
 	} 
 );
 

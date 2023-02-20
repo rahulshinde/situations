@@ -27,6 +27,20 @@ import { LetterW } from './letters/w.js'
 import { LetterX } from './letters/x.js'
 import { LetterY } from './letters/y.js'
 import { LetterZ } from './letters/z.js'
+import { Number1 } from './numbers/1.js'
+import { Number2 } from './numbers/2.js'
+import { Number3 } from './numbers/3.js'
+import { Number4 } from './numbers/4.js'
+import { Number5 } from './numbers/5.js'
+import { Number6 } from './numbers/6.js'
+import { Number7 } from './numbers/7.js'
+import { Number8 } from './numbers/8.js'
+import { Number9 } from './numbers/9.js'
+import { Number0 } from './numbers/0.js'
+import { SymbolParenthesesL } from './symbols/parenthesesL.js'
+import { SymbolParenthesesR } from './symbols/parenthesesR.js'
+import { SymbolBracketL } from './symbols/bracketL.js'
+import { SymbolBracketR } from './symbols/bracketR.js'
 
 const splineWidth = 2;
 const material = new THREE.MeshPhongMaterial( { color: 0xf7d011 } );
@@ -59,6 +73,22 @@ const x = new LetterX(splineWidth, material).path
 const y = new LetterY(splineWidth, material).path
 const z = new LetterZ(splineWidth, material).path
 
+const one = new Number1(splineWidth, material).path
+const two = new Number2(splineWidth, material).path
+const three = new Number3(splineWidth, material).path
+const four = new Number4(splineWidth, material).path
+const five = new Number5(splineWidth, material).path
+const six = new Number6(splineWidth, material).path
+const seven = new Number7(splineWidth, material).path
+const eight = new Number8(splineWidth, material).path
+const nine = new Number9(splineWidth, material).path
+const zero = new Number0(splineWidth, material).path
+
+const parenthesesL = new SymbolParenthesesL(splineWidth, material).path
+const parenthesesR = new SymbolParenthesesR(splineWidth, material).path
+const bracketL = new SymbolBracketL(splineWidth, material).path
+const bracketR = new SymbolBracketR(splineWidth, material).path
+
 const camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 4000 );
 camera.position.z = 125;
 
@@ -81,6 +111,8 @@ const scene = new THREE.Scene();
 const textLine1 = new THREE.Group();
 const textLine2 = new THREE.Group();
 const textLine3 = new THREE.Group();
+const textLine4 = new THREE.Group();
+const textLine5 = new THREE.Group();
 
 textLine1.add(a);
 textLine1.add(b);
@@ -116,6 +148,25 @@ textLine3.add(z);
 
 scene.add( textLine3 );
 
+textLine4.add(one);
+textLine4.add(two);
+textLine4.add(three);
+textLine4.add(four);
+textLine4.add(five);
+textLine4.add(six);
+textLine4.add(seven);
+textLine4.add(eight);
+textLine4.add(nine);
+textLine4.add(zero);
+
+scene.add( textLine4 );
+
+textLine5.add(parenthesesL);
+textLine5.add(parenthesesR);
+textLine5.add(bracketL);
+textLine5.add(bracketR);
+scene.add( textLine5 );
+
 
 
 a.position.x = -160;
@@ -147,10 +198,33 @@ x.position.x = 80;
 y.position.x = 120;
 z.position.x = 160;
 
+one.position.x = -180;
+two.position.x = -140;
+three.position.x = -100;
+four.position.x = -60;
+five.position.x = -20;
+six.position.x = 20;
+seven.position.x = 60;
+eight.position.x = 100;
+nine.position.x = 140;
+zero.position.x = 180;
 
-textLine1.position.y = 50;
-textLine2.position.y = 0;
-textLine3.position.y = -50;
+parenthesesL.position.x = -60;
+parenthesesR.position.x = -20;
+bracketL.position.x = 20;
+bracketR.position.x = 60;
+// m.position.x = -20;
+// n.position.x = 20;
+// o.position.x = 60;
+// p.position.x = 100;
+
+
+
+textLine1.position.y = 100;
+textLine2.position.y = 50;
+textLine3.position.y = 0;
+textLine4.position.y = -50;
+textLine5.position.y = -100;
 
 const light = new THREE.AmbientLight( 0xffffff, 0.75 ); // soft white light
 scene.add( light );
@@ -190,6 +264,22 @@ function animation( time ) {
 	x.rotation.y = time / 2000;
 	y.rotation.y = time / 2000;
 	z.rotation.y = time / 2000;
+
+	one.rotation.y = time / 2000;
+	two.rotation.y = time / 2000;
+	three.rotation.y = time / 2000;
+	four.rotation.y = time / 2000;
+	five.rotation.y = time / 2000;
+	six.rotation.y = time / 2000;
+	seven.rotation.y = time / 2000;
+	eight.rotation.y = time / 2000;
+	nine.rotation.y = time / 2000;
+	zero.rotation.y = time / 2000;
+
+	parenthesesL.rotation.y = time / 2000;
+	parenthesesR.rotation.y = time / 2000;
+	bracketL.rotation.y = time / 2000;
+	bracketR.rotation.y = time / 2000;
 
 
 	renderer.render( scene, camera );

@@ -10,7 +10,7 @@ import { LetterE } from './letters/e.js'
 import * as sceneBuilder from './utils/sceneBuilder.js'
 import * as tetherCalculator from './utils/tetherCalculator.js'
 
-const splineWidth = 2.5;
+const splineWidth = 3;
 const material = new THREE.MeshPhongMaterial( 
 	{ 
 		color: 0xf7d011 
@@ -55,27 +55,27 @@ group.add(m.path);
 group.add(e.path);
 
 
-s.path.position.x = -80;
-s.path.position.y = 40;
-s.path.position.z = -30;
+s.path.position.x = -40;
+s.path.position.y = 20;
+s.path.position.z = 30;
 
 l.path.position.x = -20;
 l.path.position.y = -0;
 l.path.position.z = 20;
 
 i.path.position.x = 10;
-i.path.position.y = 40;
+i.path.position.y = 20;
 i.path.position.z = 30;
 
-m.path.position.x = 40;
+m.path.position.x = 20;
 m.path.position.y = 0;
 m.path.position.z = -20;
 
-e.path.position.x = 80;
-e.path.position.y = -40;
+e.path.position.x = 40;
+e.path.position.y = -20;
 e.path.position.z = -45;
 
-sceneBuilder.bulidTethers([s, l, i, m, e], group, splineWidth);
+// sceneBuilder.bulidTethers([s, l, i, m, e], group, splineWidth);
 
 scene.add(group);
 
