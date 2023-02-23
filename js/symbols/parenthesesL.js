@@ -8,19 +8,19 @@ class SymbolParenthesesL {
 		// let cap6 = new THREE.Mesh( sphereGeometry, material );
 
 		cap1.position.x = 10;
-		cap1.position.y = 15;
+		cap1.position.y = 20;
 
 		cap2.position.x = 10;
-		cap2.position.y = -15;
+		cap2.position.y = -20;
 
 
 		// Path 1
 
 		let curve1 = new THREE.CubicBezierCurve3(
-			new THREE.Vector3( 10, 15, 0 ),
-			new THREE.Vector3( -10, 15, 0 ),
-			new THREE.Vector3( -10, -15, 0  ),
-			new THREE.Vector3( 10, -15, 0 )
+			new THREE.Vector3( 10, 20, 0 ),
+			new THREE.Vector3( -10, 20, 0 ),
+			new THREE.Vector3( -10, -20, 0  ),
+			new THREE.Vector3( 10, -20, 0 )
 		);
 
 		let geometryCurve1 = new THREE.TubeGeometry( curve1, 60, splineWidth, 15, false );
