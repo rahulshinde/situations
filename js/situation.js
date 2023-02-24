@@ -107,17 +107,17 @@ group.add(n);
 group.add(parenthesesR);
 
 // u.position.x = -222;
-s.position.x = -222;
-i.position.x = -182;
-t.position.x = -142;
-parenthesesL.position.x = -102;
-u.position.x = -62;
-a.position.x = -22;
-t2.position.x = 23;
-i2.position.x = 62;
-o.position.x = 102;
-n.position.x = 142;
-parenthesesR.position.x = 182;
+s.position.x = -150;
+i.position.x = -120;
+t.position.x = -90;
+parenthesesL.position.x = -60;
+u.position.x = -30;
+a.position.x = 0;
+t2.position.x = 30;
+i2.position.x = 60;
+o.position.x = 90;
+n.position.x = 120;
+parenthesesR.position.x = 150;
 
 let s_mesh = mergeMesh.getChildMeshes(s);
 let i_mesh = mergeMesh.getChildMeshes(i);
