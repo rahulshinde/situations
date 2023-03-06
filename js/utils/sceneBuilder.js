@@ -86,6 +86,12 @@ export function initScene(){
 		})
 	})
 
+	document.querySelectorAll('.background_image_style').forEach((control) => {
+		control.addEventListener('click', function(e){
+			setBackgroundStyle(e.target.id);
+		})
+	})
+
 	document.getElementById('upload').addEventListener('change', readUrl);
 
 	document.getElementById('canvas_container').appendChild( renderer.domElement );
@@ -239,13 +245,16 @@ function render( time ) {
 function readUrl(event){
 	if (event.target.files && event.target.files[0]) {
     var reader = new FileReader();
-
     reader.onload = function (e) {
     	console.log('hi');
       document.getElementById('background').src = e.target.result;
     };
-
     reader.readAsDataURL(event.target.files[0]);
   }
+}
 
+function setBackgroundStyle(backgroundStyle){
+	document.querySelector('.background_image_style.selected').classList.remove('selected');
+	document.getElementById(backgroundStyle).classList.add('selected')
+	document.getElementById('background').style.objectFit = backgroundStyle;
 }
